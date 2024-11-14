@@ -1,0 +1,28 @@
+// Language Switcher Styles
+.language-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    
+    .btn {
+        margin-left: 0.5rem;
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+    }
+    
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+        
+        &:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    }
+}
