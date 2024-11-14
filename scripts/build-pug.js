@@ -14,6 +14,11 @@ function _processFile(filePath) {
         && !filePath.match(/mixin/)
         && !filePath.match(/\/pug\/layouts\//)
     ) {
-        renderPug(filePath);
+        // Determine output filename based on input filename
+        const outputFilename = filePath.includes('-es.pug') 
+            ? 'index-es.html'
+            : 'index.html';
+        
+        renderPug(filePath, `dist/${outputFilename}`);
     }
 }
