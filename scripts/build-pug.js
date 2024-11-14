@@ -5,20 +5,13 @@ const renderPug = require('./render-pug');
 
 const srcPath = upath.resolve(upath.dirname(__filename), '../src');
 
-sh.find(srcPath).forEach(_processFile);
+// Explicitly process both English and Spanish templates
+function processTemplates() {
+    const englishTemplate = upath.resolve(srcPath, 'pug/index.pug');
+    const spanishTemplate = upath.resolve(srcPath, 'pug/index-es.pug');
 
-function _processFile(filePath) {
-    if (
-        filePath.match(/\.pug$/)
-        && !filePath.match(/include/)
-        && !filePath.match(/mixin/)
-        && !filePath.match(/\/pug\/layouts\//)
-    ) {
-        // Determine output filename based on input filename
-        const outputFilename = filePath.includes('-es.pug') 
-            ? 'index-es.html'
-            : 'index.html';
-        
-        renderPug(filePath, `dist/${outputFilename}`);
-    }
+    renderPug(englishTemplate, 'dist/index.html');
+    renderPug(spanishTemplate, 'dist/index-es.html');
 }
+
+processTemplates();
