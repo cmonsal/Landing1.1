@@ -27,11 +27,40 @@ html(lang='es')
             .container
                 a.navbar-brand(href='#!') Start Bootstrap
                 .language-switcher
-                    a.btn.btn-outline-primary.me-2(href='index.html') EN
+                    a.btn.btn-outline-primary.me-2(href='index-en.html') EN
                     a.btn.btn-primary(href='#') ES
 
-        // Resto del contenido (igual que antes)
-        // ... (previous Spanish content remains the same)
+        // Masthead
+        header.masthead
+            .container.position-relative
+                .row.justify-content-center
+                    .col-xl-6
+                        .text-center.text-white
+                            // Page heading
+                            h1.mb-5 ¡Genera más leads con una página de aterrizaje profesional!
+
+                            // Signup form
+                            form.form-subscribe#contactForm(data-sb-form-api-token='API_TOKEN')
+                                .row
+                                    .col
+                                        input#emailAddress.form-control.form-control-lg(type='email' placeholder='Correo Electrónico' data-sb-validations='required,email')
+                                        .invalid-feedback.text-white(data-sb-feedback='emailAddress:required')
+                                            | El correo electrónico es requerido.
+                                        .invalid-feedback.text-white(data-sb-feedback='emailAddress:email')
+                                            | El correo electrónico no es válido.
+                                    .col-auto
+                                        button#submitButton.btn.btn-primary.btn-lg.disabled(type='submit') Enviar
+
+                                // Submit success message
+                                #submitSuccessMessage.d-none
+                                    .text-center.mb-3
+                                        .fw-bolder ¡Envío exitoso!
+                                        p Para activar este formulario, regístrese en
+                                        a.text-white(href='https://startbootstrap.com/solution/contact-forms') https://startbootstrap.com/solution/contact-forms
+
+                                // Submit error message
+                                #submitErrorMessage.d-none
+                                    .text-center.text-danger.mb-3 ¡Error al enviar el mensaje!
 
         // Scripts al final
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
